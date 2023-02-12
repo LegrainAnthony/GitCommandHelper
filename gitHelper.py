@@ -1,7 +1,5 @@
 import subprocess
 import os
-
-x = 0
 choice = input("Que voulez-vous faire ?\n 1 - commit et push sur la branche actuelle \n 2 - git  \n 4 - test3 \n 5 - Créer une nouvelle branche \n 6 - test5 \n 7 - test6 \n 8 - test7 \n 9 - test8 \n 0 - pull depuis master \n q - Quitter \n Votre choix :")
 
 if choice == "1":
@@ -23,10 +21,11 @@ elif choice == "3":
 elif choice == "4":
     print("test4")
 elif choice == "5":
-    branchName = input("Entrez le nom de la branche : ")
+    branchName = str(input("Entrez le nom de la branche : "))
     subprocess.run(["git", "checkout", "-b", branchName ])
 elif choice == "6":
-    print("test6")
+    branchName = str(input("Entrez le nom de la branche : "))
+    subprocess.run(["git", "push", "--set-upstream", branchName ])
 elif choice == "7":
     print("test7")
 elif choice == "8":
