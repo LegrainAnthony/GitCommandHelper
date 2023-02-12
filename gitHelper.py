@@ -2,6 +2,11 @@ import subprocess
 import os
 choice = input("Que voulez-vous faire ?\n 1 - commit et push sur la branche actuelle \n 2 - git  \n 4 - test3 \n 5 - Créer une nouvelle branche \n 6 - git push setupstream \n 7 - choix de branch + git merge \n 8 - test7 \n 9 - test8 \n 0 - pull depuis master \n q - Quitter \n Votre choix :")
 
+def get_current_branch():
+    process = subprocess.Popen(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], stdout=subprocess.PIPE)
+    branch_name, _ = process.communicate()
+    return branch_name.decode().strip()
+
 if choice == "1":
     message = input("Entrez le message de commit : ")
     subprocess.run(["git", "add", "."])
@@ -48,13 +53,18 @@ elif choice == "7":
         if choiceBranch == "y":
             subprocess.run(["git", "merge"])
         elif choiceBranch == "n":
+            currentBranch = get_current_branch()
             branchName = str(input("Entrez le nom de la branche : "))
             subprocess.run(["git", "checkout", branchName ])
-            subprocess.run(["git", "merge"])
+            mergeLastBranch = input("Voulez vous merge depuis la branche depuis la quel vous venez? \n y/n : ")
+            while mergeLastBranch != "y" and mergeLastBranch != "n":
+                mergeLastBranch = input("y/n : ")
+            if mergeLastBranch == "y":
+                subprocess.run(["git", "merge", currentBranch])
 elif choice == "8":
     print("test8")
 elif choice == "9":
-    print("test9")
+    print(get_current_branch())
 elif choice == "0":
     subprocess.run(["git", "pull"])
 elif choice == "q":
