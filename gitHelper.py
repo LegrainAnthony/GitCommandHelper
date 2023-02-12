@@ -9,6 +9,8 @@ if choice == "1":
     subprocess.run(["git", "add", "."])
     subprocess.run(["git", "commit", "-m", message])
     push = input("Commit effectué, veut tu push ? \n y/n : ")
+    while push != "y" and push != "n":
+        push = input("y/n : ")
     if push == "y":
         subprocess.run(["git", "push"])
     elif push == "n":
