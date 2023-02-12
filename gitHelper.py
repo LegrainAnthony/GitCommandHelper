@@ -14,7 +14,7 @@ if choice == "1":
     if push == "y":
         subprocess.run(["git", "push"])
     elif push == "n":
-        print("Ok, bye")
+        print("Ok, n'oublie pas de push avant de partir !")
 elif choice == "2":
     current_directory = os.getcwd()
     print("The current working directory is:", current_directory)
