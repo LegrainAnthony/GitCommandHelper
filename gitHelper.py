@@ -29,8 +29,8 @@ elif choice == "5":
     branchName = str(input("Entrez le nom de la branche : "))
     subprocess.run(["git", "checkout", "-b", branchName ])
 elif choice == "6":
-    branchName = str(input("Entrez le nom de la branche : "))
-    subprocess.run(["git", "push", "--set-upstream", "origin", branchName ])
+    currentBranch = get_current_branch()
+    subprocess.run(["git", "push", "--set-upstream", "origin", currentBranch ])
 elif choice == "7":
     choiceForPull = input("Voulez vous pull avant de merge ? \n y/n : ")
     while choiceForPull != "y" and choiceForPull != "n":
