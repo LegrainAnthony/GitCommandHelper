@@ -1,7 +1,7 @@
 import subprocess
 import os
 
-
+x = 0
 choice = input("Que voulez-vous faire ?\n 1 - commit et push sur la branche actuelle \n 2 - git  \n 4 - test3 \n 5 - test4 \n 6 - test5 \n 7 - test6 \n 8 - test7 \n 9 - test8 \n 0 - test9 \n q - Quitter \n Votre choix :")
 
 if choice == "1":
