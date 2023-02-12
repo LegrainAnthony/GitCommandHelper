@@ -8,7 +8,7 @@ if choice == "1":
     message = input("Entrez le message de commit : ")
     subprocess.run(["git", "add", "."])
     subprocess.run(["git", "commit", "-m", message])
-    push = input("Commit effectué, veut tu push ? : y/n")
+    push = input("Commit effectué, veut tu push ? \n y/n : ")
     if push == "y":
         subprocess.run(["git", "push"])
     elif push == "n":
