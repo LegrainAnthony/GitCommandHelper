@@ -1,15 +1,21 @@
 import subprocess
+import os
 
 
-choice = input("Que voulez-vous faire ?\n 1 - commit et push sur la branche actuelle \n 2 - test2 \n 4 - test3 \n 5 - test4 \n 6 - test5 \n 7 - test6 \n 8 - test7 \n 9 - test8 \n 0 - test9 \n q - Quitter \n Votre choix :")
+choice = input("Que voulez-vous faire ?\n 1 - commit et push sur la branche actuelle \n 2 - git  \n 4 - test3 \n 5 - test4 \n 6 - test5 \n 7 - test6 \n 8 - test7 \n 9 - test8 \n 0 - test9 \n q - Quitter \n Votre choix :")
 
 if choice == "1":
     message = input("Entrez le message de commit : ")
     subprocess.run(["git", "add", "."])
     subprocess.run(["git", "commit", "-m", message])
-    subprocess.run(["git", "push"])
+    push = input("Commit effectué, veut tu push ? : y/n")
+    if push == "y":
+        subprocess.run(["git", "push"])
+    elif push == "n":
+        print("Ok, bye")
 elif choice == "2":
-    print("test2")
+    current_directory = os.getcwd()
+    print("The current working directory is:", current_directory)
 elif choice == "3":
     print("test3")
 elif choice == "4":
