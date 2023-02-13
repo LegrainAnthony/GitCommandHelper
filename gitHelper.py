@@ -1,7 +1,6 @@
 import subprocess
 import os
 choice = input("Que voulez-vous faire ?\n 1 - commit et push sur la branche actuelle \n 2 - Créer une nouvelle branch  \n 3 - git push setupstream \n 4 - choix de branch + git merge \n 5 - Voir la branch actuellement \n 6 - git pull \n 7 - changer de branch \n q - Quitter \n Votre choix :")
-x = 'test'
 def gitHelper():
 
     def get_current_branch():
