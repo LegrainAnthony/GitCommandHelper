@@ -60,7 +60,14 @@ def gitHelper():
     elif choice == "5":
         print(get_current_branch())
     elif choice == "6":
-        subprocess.run(["git", "pull"])
+        origin = input("Voulez vous pull depuis main ? \n y/n : ")
+        while origin != "y" and origin != "n":
+            origin = input("y/n : ")
+        if origin == "y":
+            subprocess.run(["git", "pull", "origin", "main"])
+        elif origin == "n":
+            origin = input("Depuis quelle branche voulez vous pull ? : ")
+        subprocess.run(["git", "pull", "origin", origin])
     elif choice == "7":
         branchName = str(input("Entrez le nom de la branche : "))
         subprocess.run(["git", "checkout", branchName ])
