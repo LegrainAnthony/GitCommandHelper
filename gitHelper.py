@@ -1,6 +1,6 @@
 import subprocess
 import os
-choice = input("Que voulez-vous faire ?\n 1 - commit et push sur la branche actuelle \n 2 - Créer une nouvelle branch  \n 3 - git push setupstream \n 4 - choix de branch + git merge \n 5 - Voir la branch actuellement \n 6 - git pull \n 0 - pull depuis master \n q - Quitter \n Votre choix :")
+choice = input("Que voulez-vous faire ?\n 1 - commit et push sur la branche actuelle \n 2 - Créer une nouvelle branch  \n 3 - git push setupstream \n 4 - choix de branch + git merge \n 5 - Voir la branch actuellement \n 6 - git pull \n 7 - changer de branch \n q - Quitter \n Votre choix :")
 
 def gitHelper():
 
@@ -59,8 +59,11 @@ def gitHelper():
                     subprocess.run(["git", "merge", currentBranch])
     elif choice == "5":
         print(get_current_branch())
-    elif choice == "0":
+    elif choice == "6":
         subprocess.run(["git", "pull"])
+    elif choice == "7":
+        branchName = str(input("Entrez le nom de la branche : "))
+        subprocess.run(["git", "checkout", branchName ])
     elif choice == "q":
         print("Bye")
 
